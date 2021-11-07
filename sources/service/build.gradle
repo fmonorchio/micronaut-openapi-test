@@ -1,0 +1,16 @@
+apply from: "${project.rootDir}/configurations/gradle/micronaut-application.gradle"
+
+dependencies {
+
+    implementation project(':sources:core')
+    implementation 'io.micronaut.openapi:micronaut-openapi'
+    implementation 'io.micronaut:micronaut-management'
+    runtimeOnly 'ch.qos.logback:logback-classic'
+}
+
+application {
+    mainClassName = 'micronaut.openapi.test.service.Application'
+    applicationDefaultJvmArgs = [
+            '-noverify'
+    ]
+}

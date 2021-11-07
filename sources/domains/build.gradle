@@ -1,0 +1,5 @@
+apply from: "${project.rootDir}/configurations/gradle/micronaut-library.gradle"
+
+dependencies {
+    api 'io.swagger.core.v3:swagger-annotations'
+}

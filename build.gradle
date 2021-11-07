@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "io.micronaut.gradle:micronaut-gradle-plugin:${micronautGradleVersion}"
+    }
+}
+
+allprojects {
+    apply plugin: 'base'
+    apply plugin: 'idea'
+
+    group = 'micronaut-openapi-test'
+    version = '0.0.1'
+
+    repositories {
+        mavenCentral()
+    }
+
+    idea {
+        module {
+            downloadJavadoc = true
+            downloadSources = true
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = project.gradleVersion
+    distributionType = Wrapper.DistributionType.ALL
+}

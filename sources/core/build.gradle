@@ -1,0 +1,7 @@
+apply from: "${project.rootDir}/configurations/gradle/micronaut-library.gradle"
+
+dependencies {
+    api project(':sources:domains')
+    api 'io.micronaut:micronaut-http-server'
+
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Service</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/rapidoc/dist/rapidoc-min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/rapipdf/dist/rapipdf-min.js"></script>
+        <style>
+            .icon-font {
+                font-size: 20px;
+            }
+            .rapipdf {
+                display: none;
+            }
+        </style>
+        <script>
+            let pdf = () =>
+                document.getElementById("rapipdf")
+                    .generatePdf("/swagger/service-0.0.1.yml");
+        </script>
+    </head>
+    <body>
+        <rapi-doc id="rapidoc" spec-url="/swagger/service-0.0.1.yml"
+                  font-size="largest"
+                  nav-item-spacing="relaxed"
+                  render-style="focused"
+                  show-header="false"
+                  sort-tags="true"
+                  theme="dark"
+                  update-route="false"
+                  use-path-in-nav-bar="false">
+            <div slot="overview">
+                <rapi-pdf id="rapipdf" class="rapipdf"></rapi-pdf>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-success w-100" role="button" target="blank" href="swagger/service-0.0.1.yml">
+                                <i class="bi bi-box-arrow-up-right icon-font"></i>
+                                <span><b>Open Specification</b></span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-success w-100" role="button" href="/swagger/service-0.0.1.yml" download>
+                                <i class="bi bi-file-earmark-arrow-down icon-font"></i>
+                                <span><b>Download Specification</b></span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-success w-100" role="button" target="blank" onclick="pdf()">
+                                <i class="bi bi-file-earmark-pdf icon-font"></i>
+                                <span><b>View as PDF</b></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </rapi-doc>
+    </body>
+</html>
